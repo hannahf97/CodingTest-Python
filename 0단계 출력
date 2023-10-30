@@ -1,0 +1,34 @@
+## 대소문자 바꿔쓰기 
+
+### 내가 만든 코드
+```
+str = input()
+answer = ""
+for i in str:
+    if i.islower():
+        answer += i.upper()
+    else:
+        answer += i.lower()
+print(answer)
+
+```python
+
+### 다른사람이 쓴 코드
+swapcase라는 함수 활용
+
+```
+print(input().swapcase())
+```
+join을 통해 하나로 합침
+
+```
+print(''.join(x.upper() if x == x.lower() else x.lower() for x in input())
+```
+
+
+## 특수문자 쓰기
+보통은 \ 를 하나 더 붙인다
+
+### 다른사람 풀이
+print(r'!@#$%^&*(\'"<>?:;')
+r '' 을 통해 특수문자 사용한다. 
