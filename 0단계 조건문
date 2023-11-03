@@ -1,0 +1,73 @@
+## 코드 처리하기
+### 내 풀이 
+if문과 else로 어지러운 코드
+
+```
+def solution(code):
+    answer = ''
+    mode = 0
+    for idx in range(len(code)):
+        if code[idx] == "1":
+            if mode == 0:
+                mode = 1
+            else:
+                mode = 0
+        else:
+            if mode == 0 and idx%2== 0:
+                answer += code[idx]
+            elif mode == 1 and idx%2 == 1:
+                answer += code[idx]
+    if len(answer) == 0:
+        return "EMPTY"
+    
+    return answer
+```
+
+### 다른사람 풀이 
+```
+def solution(code):
+    return "".join(code.split("1"))[::2] or "EMPTY"
+```
+이걸 한줄로,, split 1을 통해서 구별하고 
+return에서 empty인지 아닌지로 구별하다니 똑똑하다
+
+## 등차수열의 특정한 항만 더하기
+### 다른사람풀이
+included라는 배열안에 true false 를 통해 더할지 안더할지를 확인하는 문제 
+였는데
+
+```
+def solution(a, d, included):
+    answer = 0
+    for i in range(len(included)):
+        answer += (a + d * i) * int(included[i])
+    return answer
+```
+true false가 int로 감싸면 1, 0 이 된다는걸로 곱하다니 ,,
+
+## 주사위 게임2
+### 다른사람풀이
+```
+def solution(a, b, c):
+    check=len(set([a,b,c]))
+    if check==1:
+        return 3*a*3*(a**2)*3*(a**3)
+    elif check==2:
+        return (a+b+c)*(a**2+b**2+c**2)
+    else:
+        return (a+b+c)
+```
+set을 통해 동일한 값이 있는지 확인해서 그 길이를 통해 같은값이 있는지를 확인하는 방법 
+특이하다.
+
+## 원소들의 곱과 합
+### 다른사람 풀이
+```
+def solution(num_list):
+    s=sum(num_list)**2
+    m=eval('*'.join([str(n) for n in num_list]))
+    return 1 if s>m else 0
+```
+원소들의 합을 제곱한것은 이해했는데
+모든 원소들의 곱을 이렇게도 표현할 수 있군
+
